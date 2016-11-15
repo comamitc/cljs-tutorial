@@ -12,7 +12,7 @@
 
 *YAY! YOU HAVE A CLOJURE BUILD TOOL!*
 
-### pull this repo locally if you haven't already
+#### Pull this repo locally if you haven't already.
 
 ### Let's Write Some ClojureScript
 
