@@ -41,9 +41,9 @@
 
 
 3. Writing Some ClojureScript
-    * **state changes**: Errrbody loves them some timetraveling, right?  Let's utilize the [add-watch](http://clojuredocs.org/clojure.core/add-watch) function available for ClojureScript `atom`s to print out the old and new state changes when they the state is actually different! **hint**: The [`indentical?`](http://clojuredocs.org/clojure.core/identical%3F) function can be used here. You're add watch will be set up like this:
+    * **State Changes**: Errrbody loves them some timetraveling, right?  Let's utilize the [add-watch](http://clojuredocs.org/clojure.core/add-watch) function available for ClojureScript `atom`s to print out the old and new state changes when they the state is actually different! **hint**: The [`indentical?`](http://clojuredocs.org/clojure.core/identical%3F) function can be used here. You're add watch will be set up like this:
 
-    ```Clojure
+    ```clojure
     (add-watch state
                :key
                (fn [_ _ old-state new-state]
@@ -51,9 +51,9 @@
                  )
     ```
 
-    * Next, let's create a macro that reads `./project.clj` and attached the version number to the `state`.  [Here's an example of this]( https://github.com/HigherEducation/edudirect-ai/blob/master/src/edudirect_ai/util.clj#L35-L36) **BUT** you will also want to convert the string produced from the input contents (via `slurp`) to a ClojureScript datastructure (via `read-string`).
+    * **Macros**: Next, let's create a macro that reads `./project.clj` and attached the version number to the `state`.  [Here's an example of this]( https://github.com/HigherEducation/edudirect-ai/blob/master/src/edudirect_ai/util.clj#L35-L36) **BUT** you will also want to convert the string produced from the input contents (via `slurp`) to a ClojureScript datastructure (via `read-string`).
 
-    * **Asyncronous** OK, we're done with the easy stuff.  Lets go full out. For this exercise we will be querying a [random number generator](http://qrng.anu.edu.au/API/api-demo.php#) that generates true random numbers by measuring quantum fluctuations of a vacuum in real-time! Once we've gathered the result back we will reduce the returned array of data into a map (key-value pairs) with the key being a returned number in the JSON payload and the value being the number of times it occurred. For readability purpose, sort this map by it's values descending.
+    * **Asyncronous Flow**: OK, we're done with the easy stuff.  Lets go full out. For this exercise we will be querying a [random number generator](http://qrng.anu.edu.au/API/api-demo.php#) that generates true random numbers by measuring quantum fluctuations of a vacuum in real-time! Once we've gathered the result back we will reduce the returned array of data into a map (key-value pairs) with the key being a returned number in the JSON payload and the value being the number of times it occurred. For readability purpose, sort this map by it's values descending.
 
         * We're putting these series of functions outside of a `defn`. This can be in `core.cljs` or you can put it in your own file. (**hint**: Don't forget to import your new namespace into `core.cljs`!)
 
