@@ -3,6 +3,8 @@
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
 
+  :source-paths ["src", "lib"]
+
   :dependencies [[org.clojure/clojure "1.8.0" :scope "provided"]
                  [org.clojure/clojurescript "1.9.229" :scope "provided"]
                  [org.clojure/core.async "0.2.395"]
@@ -32,7 +34,7 @@
          :target-path "resources/public/css"}
 
   :cljsbuild {:builds {:app
-                       {:source-paths ["src"]
+                       {:source-paths ["src", "lib"]
                         :figwheel  {:on-jsload "cljs-frontend.core/mount-root"}
                         :compiler
                         {:main cljs-frontend.core
@@ -41,15 +43,7 @@
                          :asset-path   "js/out"
                          :source-map true
                          :optimizations :none
-                         :pretty-print  true}}
-                       :release
-                       {:source-paths ["src" "env/prod/cljs"]
-                        :compiler
-                        {:output-to "resources/public/js/app.js"
-                         :output-dir "resources/public/js/release"
-                         :asset-path   "js/out"
-                         :optimizations :advanced
-                         :pretty-print false}}}}
+                         :pretty-print  true}}}}
 
   :aliases {"release" ["do" "clean" ["cljsbuild" "once" "release"]]
             "dev"     ["do" "clean" ["pdo" ["less" "auto"] ["figwheel" "app"]]]})

@@ -1,9 +1,11 @@
 (ns cljs-frontend.core
-    (:require-macros [cljs.core.async.macros :refer [go go-loop]])
+    (:require-macros [cljs.core.async.macros :refer [go go-loop]]
+                     [cljc.core :refer [slurp]])
     (:require [rum.core :as rum]
               [cljs.core.async :refer [<! timeout]]
               [cljs-time.core :as t]
               [cljs-time.format :as f]))
+
 
 (enable-console-print!)
 
